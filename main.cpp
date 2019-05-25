@@ -1,15 +1,7 @@
-#include<iostream>
-using namespace std;
-
-
-template<typename T>	//Создание шаблона.
-void FillRand(T Arr[], const int n);
-void FillRand(char Arr[], const int n);
-template<typename T>
-void Print(T Arr[], const int n);
-template<typename T>
-void Sort(T Arr[], const int n);
-
+#include"functions.h"
+#include"FillRand.cpp"
+#include"Print.cpp"
+#include"Sort.cpp"
 void main()
 {
 	setlocale(LC_ALL, "Rus");
@@ -32,46 +24,3 @@ void main()
 	Print(Crr, n);
 }
 
-template<typename T>
-void FillRand(T Arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		Arr[i] = rand() % 10000;
-		Arr[i] /= 100;
-	}
-}
-
-void FillRand(char Arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		Arr[i] = rand() % 255;
-	}
-}
-
-template<typename T>
-void Print(T Arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << Arr[i] << "\t";
-	}
-	cout << endl;
-}
-template<typename T>
-void Sort(T Arr[], const int n)
-{
-	for (int i = 0; i < n; i++) 
-	{
-		for (int j = i + 1; j < n; j++)
-		{
-			if (Arr[j] < Arr[i])
-			{
-				T buffer = Arr[i];
-				Arr[i] = Arr[j];
-				Arr[j] = buffer;
-			}
-		}
-	}
-}
